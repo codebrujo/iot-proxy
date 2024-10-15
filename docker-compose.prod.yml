@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  app:
+    container_name: app
+    restart: always
+    healthcheck:
+      test: [ "CMD", "curl", "127.0.0.1:80" ]
+      interval: 5s
+      retries: 5
+    build: .
+    env_file: .env
+    ports:
+      - 80:80
